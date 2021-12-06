@@ -1,0 +1,5 @@
+commands:
+  explode-power: 10
+  explode-fire: true
+  # This length value is in ticks, 1 second = 20 ticks.
+  fire-length: 400

@@ -1,0 +1,14 @@
+name: IcyTrolling
+version: BETA
+main: me.icynnac.icytrolling.Main
+api-version: 1.14
+commands:
+  explode:
+    description: Blows up someone on a 5 second timer.
+    permission: icytroll.explode
+  burn:
+    description: buuuuuuuurn
+    permission: icytroll.burn
+  drop:
+    description: Drop whatever your target's holding!
+    permission: icytroll.drop

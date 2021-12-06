@@ -12,3 +12,9 @@ commands:
   drop:
     description: Drop whatever your target's holding!
     permission: icytroll.drop
+  pumpkin:
+    description: Put a pumpkin on someone's head!
+    permission: icytroll.pumpkin
+  fling:
+    description: Fling someone really high.
+    permission: icytroll.fling

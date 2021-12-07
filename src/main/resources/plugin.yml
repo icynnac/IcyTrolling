@@ -3,6 +3,9 @@ version: BETA
 main: me.icynnac.icytrolling.Main
 api-version: 1.14
 commands:
+  icytroll:
+    description: A command for stuff about the plugin.
+    permission: icytroll.admin
   explode:
     description: Blows up someone on a 5 second timer.
     permission: icytroll.explode
@@ -18,3 +21,6 @@ commands:
   fling:
     description: Fling someone really high.
     permission: icytroll.fling
+  levitate:
+    description: Send someone to the sun.
+    permission: icytroll.levitate

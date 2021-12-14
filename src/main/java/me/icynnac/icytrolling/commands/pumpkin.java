@@ -10,12 +10,13 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
 public class pumpkin implements CommandExecutor {
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (sender.hasPermission("icytroll.pumpkin")) {
             if (args.length > 0) {
                 Player t = Bukkit.getPlayer(args[0]);
@@ -27,23 +28,26 @@ public class pumpkin implements CommandExecutor {
                     pmeta.addEnchant(Enchantment.BINDING_CURSE, 1, true);
                     pumpkin.setItemMeta(pmeta);
                     if (args.length > 1) {
-                        if (args[1].equalsIgnoreCase("on")) {
-                            if (Objects.equals(Objects.requireNonNull(t.getEquipment()).getHelmet(), pumpkin)) {
-                                sender.sendMessage(ChatColor.RED + "Target already has a really inconvenient hat.");
-                            } else {
-                                sender.sendMessage(ChatColor.GOLD + t.getName() + " now has a really inconvenient hat!");
-                                t.sendMessage(ChatColor.RED + "You now have a really inconvenient hat!");
-                                Objects.requireNonNull(t.getEquipment()).setHelmet(pumpkin);
-                            }
-                        } else if (args[1].equalsIgnoreCase("off")) {
-                            if (!Objects.equals(Objects.requireNonNull(t.getEquipment()).getHelmet(), pumpkin)) {
-                                sender.sendMessage(ChatColor.RED + "Target does not have a really inconvenient hat.");
-                            } else {
-                                Objects.requireNonNull(t.getEquipment()).setHelmet(new ItemStack(Material.AIR));
-                            }
-                            Objects.requireNonNull(t.getEquipment()).setHelmet(new ItemStack(Material.AIR));
-                        } else {
-                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /pumpkin (target's username) [on/off]");
+                        switch (args[1].toLowerCase()) {
+                            case "on":
+                                if (Objects.equals(Objects.requireNonNull(t.getEquipment()).getHelmet(), pumpkin)) {
+                                    sender.sendMessage(ChatColor.RED + "Target already has a really inconvenient hat.");
+                                } else {
+                                    sender.sendMessage(ChatColor.GOLD + t.getName() + " now has a really inconvenient hat!");
+                                    t.sendMessage(ChatColor.RED + "You now have a really inconvenient hat!");
+                                    Objects.requireNonNull(t.getEquipment()).setHelmet(pumpkin);
+                                }
+                                break;
+                            case "off":
+                                if (!Objects.equals(Objects.requireNonNull(t.getEquipment()).getHelmet(), pumpkin)) {
+                                    sender.sendMessage(ChatColor.RED + "Target does not have a really inconvenient hat.");
+                                } else {
+                                    Objects.requireNonNull(t.getEquipment()).setHelmet(new ItemStack(Material.AIR));
+                                }
+                                break;
+                            default:
+                                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /pumpkin (target's username) [on/off]");
+                                break;
                         }
                     } else {
                         sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /pumpkin (target's username) [on/off]");

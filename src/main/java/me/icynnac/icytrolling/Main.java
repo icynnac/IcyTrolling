@@ -2,6 +2,7 @@ package me.icynnac.icytrolling;
 
 import me.icynnac.icytrolling.commands.*;
 import me.icynnac.icytrolling.utils.tabcompleters.dropTab;
+import me.icynnac.icytrolling.utils.tabcompleters.lagTab;
 import me.icynnac.icytrolling.utils.tabcompleters.pumpkinTab;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -30,5 +31,10 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(getCommand("fling")).setPermissionMessage("no.");
         Objects.requireNonNull(getCommand("levitate")).setExecutor(new fly());
         Objects.requireNonNull(getCommand("levitate")).setPermissionMessage("no.");
+        Objects.requireNonNull(getCommand("lag")).setExecutor(new lag());
+        Objects.requireNonNull(getCommand("lag")).setPermissionMessage("no.");
+        Objects.requireNonNull(getCommand("lag")).setTabCompleter(new lagTab());
+        Objects.requireNonNull(getCommand("demo")).setExecutor(new demo());
+        Objects.requireNonNull(getCommand("demo")).setPermissionMessage("no.");
     }
 }

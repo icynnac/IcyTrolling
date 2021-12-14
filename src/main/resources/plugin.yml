@@ -1,11 +1,11 @@
 name: IcyTrolling
 version: BETA
 main: me.icynnac.icytrolling.Main
-api-version: 1.14
+api-version: 1.16
 commands:
   icytroll:
     description: A command for stuff about the plugin.
-    permission: icytroll.admin
+    permission: icytroll.icytroll
   explode:
     description: Blows up someone on a 5 second timer.
     permission: icytroll.explode
@@ -24,3 +24,9 @@ commands:
   levitate:
     description: Send someone to the sun.
     permission: icytroll.levitate
+  lag:
+    description: Have my internet.
+    permission: icytroll.lag
+  demo:
+    description: You should pay for Minecraft.
+    permission: icytroll.demo

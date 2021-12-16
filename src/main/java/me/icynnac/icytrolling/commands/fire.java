@@ -1,12 +1,16 @@
 package me.icynnac.icytrolling.commands;
 
 import me.icynnac.icytrolling.Main;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+
+import javax.swing.text.html.Option;
+import java.util.Optional;
 
 public class fire implements CommandExecutor {
     @Override
@@ -15,12 +19,21 @@ public class fire implements CommandExecutor {
             if (args.length > 0) {
                 Player t = Bukkit.getPlayer(args[0]);
                 if (t != null) {
-                    t.setFireTicks(Main.instance.getConfig().getInt("commands.fire-length"));
+                    if (args.length > 1) {
+                        if (StringUtils.isNumeric(args[1])) {
+                            t.setFireTicks(Integer.parseInt(args[1]));
+                            sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now on fire for " + ChatColor.AQUA + args[1] + ChatColor.DARK_AQUA + " ticks.");
+                        } else {
+                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /burn (target's username) (time in ticks)");
+                        }
+                    } else {
+                        sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /burn (target's username) (time in ticks)");
+                    }
                 } else {
                     sender.sendMessage(ChatColor.RED + "That player doesn't exist, did you make a typo?");
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /burn (target's username)");
+                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /burn (target's username) (time in ticks)");
             }
         }
         return false;

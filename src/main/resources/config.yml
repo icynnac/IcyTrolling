@@ -1,7 +1,4 @@
 commands:
-  explode-power: 10
-  explode-fire: true
-  # This length value is in ticks, 1 second = 20 ticks.
-  fire-length: 400
   # 0 is Levitation I, 1 is Levitation II, etc.
   levitation-power: 0
+  lag-loop-time: 3

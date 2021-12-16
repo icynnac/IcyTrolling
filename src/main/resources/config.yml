@@ -1,4 +1,0 @@
-commands:
-  # 0 is Levitation I, 1 is Levitation II, etc.
-  levitation-power: 0
-  lag-loop-time: 3

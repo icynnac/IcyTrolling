@@ -1,9 +1,7 @@
 package me.icynnac.icytrolling;
 
 import me.icynnac.icytrolling.commands.*;
-import me.icynnac.icytrolling.utils.tabcompleters.dropTab;
-import me.icynnac.icytrolling.utils.tabcompleters.lagTab;
-import me.icynnac.icytrolling.utils.tabcompleters.pumpkinTab;
+import me.icynnac.icytrolling.utils.tabcompleters.*;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -19,6 +17,7 @@ public final class Main extends JavaPlugin {
 
         Objects.requireNonNull(getCommand("explode")).setExecutor(new explode());
         Objects.requireNonNull(getCommand("explode")).setPermissionMessage("no.");
+        Objects.requireNonNull(getCommand("explode")).setTabCompleter(new explodeTab());
         Objects.requireNonNull(getCommand("burn")).setExecutor(new fire());
         Objects.requireNonNull(getCommand("burn")).setPermissionMessage("no.");
         Objects.requireNonNull(getCommand("drop")).setExecutor(new drop());
@@ -31,6 +30,7 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(getCommand("fling")).setPermissionMessage("no.");
         Objects.requireNonNull(getCommand("levitate")).setExecutor(new fly());
         Objects.requireNonNull(getCommand("levitate")).setPermissionMessage("no.");
+        Objects.requireNonNull(getCommand("levitate")).setTabCompleter(new flyTab());
         Objects.requireNonNull(getCommand("lag")).setExecutor(new lag());
         Objects.requireNonNull(getCommand("lag")).setPermissionMessage("no.");
         Objects.requireNonNull(getCommand("lag")).setTabCompleter(new lagTab());

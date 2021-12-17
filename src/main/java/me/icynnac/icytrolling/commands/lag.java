@@ -19,49 +19,63 @@ public class lag implements CommandExecutor {
                 if (t != null) {
                     if (args.length > 1) {
                         BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
-                        if (args[1].equalsIgnoreCase("1s")) {
-                            int onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, Main.instance.getConfig().getInt("commands.lag-loop-time"));
-                            sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
-                            scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20);
-                        } else if (args[1].equalsIgnoreCase("2s")) {
-                            int onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, Main.instance.getConfig().getInt("commands.lag-loop-time"));
-                            sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
-                            scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*2);
-                        } else if (args[1].equalsIgnoreCase("3s")) {
-                            int onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, Main.instance.getConfig().getInt("commands.lag-loop-time"));
-                            sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
-                            scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*3);
-                        } else if (args[1].equalsIgnoreCase("4s")) {
-                            int onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, Main.instance.getConfig().getInt("commands.lag-loop-time"));
-                            sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
-                            scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*4);
-                        } else if (args[1].equalsIgnoreCase("5s")) {
-                            int onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, Main.instance.getConfig().getInt("commands.lag-loop-time"));
-                            sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
-                            scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*5);
-                        } else if (args[1].equalsIgnoreCase("6s")) {
-                            int onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, Main.instance.getConfig().getInt("commands.lag-loop-time"));
-                            sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
-                            scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*6);
-                        } else if (args[1].equalsIgnoreCase("7s")) {
-                            int onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, Main.instance.getConfig().getInt("commands.lag-loop-time"));
-                            sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
-                            scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*7);
-                        } else if (args[1].equalsIgnoreCase("8s")) {
-                            int onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, Main.instance.getConfig().getInt("commands.lag-loop-time"));
-                            sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
-                            scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*8);
-                        } else if (args[1].equalsIgnoreCase("9s")) {
-                            int onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, Main.instance.getConfig().getInt("commands.lag-loop-time"));
-                            sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
-                            scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*9);
-                        } else if (args[1].equalsIgnoreCase("10s")) {
-                            int onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, Main.instance.getConfig().getInt("commands.lag-loop-time"));
-                            sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
-                            scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*10);
-                        } else {
-                            sender.sendMessage(ChatColor.RED + "Invalid time, maximum lag time is 10s.");
+                        switch (args[1].toLowerCase()) {
+                            case "1":
+                                int onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, 3);
+                                sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
+                                scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20);
+                                break;
+                            case "2":
+                                onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, 3);
+                                sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
+                                scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*2);
+                                break;
+                            case "3":
+                                onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, 3);
+                                sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
+                                scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*3);
+                                break;
+                            case "4":
+                                onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, 3);
+                                sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
+                                scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*4);
+                                break;
+                            case "5":
+                                onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, 3);
+                                sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
+                                scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*5);
+                                break;
+                            case "6":
+                                onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, 3);
+                                sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
+                                scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*6);
+                                break;
+                            case "7":
+                                onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, 3);
+                                sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
+                                scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*7);
+                                break;
+                            case "8":
+                                onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, 3);
+                                sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
+                                scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*8);
+                                break;
+                            case "9":
+                                onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, 3);
+                                sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
+                                scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*9);
+                                break;
+                            case "10":
+                                onesec = scheduler.scheduleSyncRepeatingTask(Main.instance, () -> t.teleport(t.getLocation()),0, 3);
+                                sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " is now lagging!");
+                                scheduler.scheduleSyncDelayedTask(Main.instance, () -> scheduler.cancelTask(onesec),20*10);
+                                break;
+                            default:
+                                sender.sendMessage(ChatColor.RED + "Invalid time, maximum lag time is 10s.");
+                                break;
                         }
+                    } else {
+                        sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /lag (target's username) (time)");
                     }
                 } else {
                     sender.sendMessage(ChatColor.RED + "That player doesn't exist, did you make a typo?");

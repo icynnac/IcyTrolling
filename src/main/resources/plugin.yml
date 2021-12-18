@@ -1,5 +1,5 @@
 name: IcyTrolling
-version: BETA
+version: B-0.1
 main: me.icynnac.icytrolling.Main
 api-version: 1.16
 commands:

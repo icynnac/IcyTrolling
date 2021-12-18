@@ -1,5 +1,6 @@
 package me.icynnac.icytrolling.commands;
 
+import me.icynnac.icytrolling.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -10,7 +11,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
-public class fly implements CommandExecutor {
+public class levitate implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (sender.hasPermission("icytroll.levitate")) {
@@ -21,7 +22,7 @@ public class fly implements CommandExecutor {
                         switch (args[1].toLowerCase()) {
                             case "1":
                                 if (!t.hasPotionEffect(PotionEffectType.LEVITATION)) {
-                                    t.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 999999, 1));
+                                    t.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 99999999, 1));
                                     t.sendMessage(ChatColor.DARK_AQUA + "Whoops, you're going to the sun!");
                                     sender.sendMessage(ChatColor.DARK_AQUA + "Sent " + ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " to the sun.");
                                 } else {
@@ -30,7 +31,7 @@ public class fly implements CommandExecutor {
                                 break;
                             case "2":
                                 if (!t.hasPotionEffect(PotionEffectType.LEVITATION)) {
-                                    t.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 999999, 2));
+                                    t.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 99999999, 2));
                                     t.sendMessage(ChatColor.DARK_AQUA + "Whoops, you're going to the sun!");
                                     sender.sendMessage(ChatColor.DARK_AQUA + "Sent " + ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " to the sun.");
                                 } else {
@@ -39,7 +40,7 @@ public class fly implements CommandExecutor {
                                 break;
                             case "3":
                                 if (!t.hasPotionEffect(PotionEffectType.LEVITATION)) {
-                                    t.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 999999, 3));
+                                    t.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 99999999, 3));
                                     t.sendMessage(ChatColor.DARK_AQUA + "Whoops, you're going to the sun!");
                                     sender.sendMessage(ChatColor.DARK_AQUA + "Sent " + ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " to the sun.");
                                 } else {
@@ -48,7 +49,7 @@ public class fly implements CommandExecutor {
                                 break;
                             case "4":
                                 if (!t.hasPotionEffect(PotionEffectType.LEVITATION)) {
-                                    t.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 999999, 4));
+                                    t.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 99999999, 4));
                                     t.sendMessage(ChatColor.DARK_AQUA + "Whoops, you're going to the sun!");
                                     sender.sendMessage(ChatColor.DARK_AQUA + "Sent " + ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " to the sun.");
                                 } else {
@@ -57,7 +58,7 @@ public class fly implements CommandExecutor {
                                 break;
                             case "5":
                                 if (!t.hasPotionEffect(PotionEffectType.LEVITATION)) {
-                                    t.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 999999, 5));
+                                    t.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 99999999, 5));
                                     t.sendMessage(ChatColor.DARK_AQUA + "Whoops, you're going to the sun!");
                                     sender.sendMessage(ChatColor.DARK_AQUA + "Sent " + ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " to the sun.");
                                 } else {
@@ -74,15 +75,15 @@ public class fly implements CommandExecutor {
                                 }
                                 break;
                             default:
-                                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /levitate (target's username) (effect power)");
+                                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdfly));
                                 break;
                         }
                     }
                 } else {
-                    sender.sendMessage(ChatColor.RED + "That player doesn't exist, did you make a typo?");
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&',Main.prefix + " " + Main.noplr));
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /levitate (target's username) (effect power)");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdfly));
             }
         }
         return false;

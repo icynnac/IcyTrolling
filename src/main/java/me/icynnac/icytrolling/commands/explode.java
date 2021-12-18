@@ -1,5 +1,6 @@
 package me.icynnac.icytrolling.commands;
 
+import me.icynnac.icytrolling.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
@@ -16,8 +17,8 @@ public class explode implements CommandExecutor {
             if (args.length > 0) {
                 Player t = Bukkit.getPlayer(args[0]);
                 assert t != null;
-                World w = t.getWorld();
                 if (t != null) {
+                    World w = t.getWorld();
                     if (args.length > 1) {
                         switch (args[1].toLowerCase()) {
                             case "1":
@@ -32,7 +33,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -49,7 +50,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -66,7 +67,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -83,7 +84,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -100,7 +101,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -117,7 +118,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -134,7 +135,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -151,7 +152,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -168,7 +169,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -185,7 +186,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -202,7 +203,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -219,7 +220,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -236,7 +237,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -253,7 +254,7 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
@@ -270,21 +271,21 @@ public class explode implements CommandExecutor {
                                             sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " has been blown up!");
                                             break;
                                         default:
-                                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                             break;
                                     }
                                 }
                                 break;
                             default:
-                                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
                                 break;
                         }
                     }
                 } else {
-                    sender.sendMessage(ChatColor.RED + "That player doesn't exist, did you make a typo?");
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&',Main.prefix + " " + Main.noplr));
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdboom));
             }
         }
         return false;

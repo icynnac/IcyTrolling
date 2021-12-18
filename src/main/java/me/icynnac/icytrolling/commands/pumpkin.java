@@ -1,5 +1,6 @@
 package me.icynnac.icytrolling.commands;
 
+import me.icynnac.icytrolling.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -46,17 +47,17 @@ public class pumpkin implements CommandExecutor {
                                 }
                                 break;
                             default:
-                                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /pumpkin (target's username) [on/off]");
+                                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdpumpkin));
                                 break;
                         }
                     } else {
-                        sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /pumpkin (target's username) [on/off]");
+                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdpumpkin));
                     }
                 } else {
-                    sender.sendMessage(ChatColor.RED + "That player doesn't exist, did you make a typo?");
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&',Main.prefix + " " + Main.noplr));
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /pumpkin (target's username) [on/off]");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdpumpkin));
             }
         }
         return false;

@@ -1,5 +1,6 @@
 package me.icynnac.icytrolling.commands;
 
+import me.icynnac.icytrolling.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -82,17 +83,17 @@ public class drop implements CommandExecutor {
                                 }
                                 break;
                             default:
-                                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /drop (target's username) [main/offhand/both]");
+                                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmddrop));
                                 break;
                         }
                     } else {
-                        sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /drop (target's username) [main/offhand/both]");
+                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmddrop));
                     }
                 } else {
-                    sender.sendMessage(ChatColor.RED + "That player doesn't exist, did you make a typo?");
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&',Main.prefix + " " + Main.noplr));
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /drop (target's username) [main/offhand/both]");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmddrop));
             }
         }
         return false;

@@ -1,5 +1,6 @@
 package me.icynnac.icytrolling.commands;
 
+import me.icynnac.icytrolling.Main;
 import net.minecraft.server.v1_16_R3.PacketPlayOutGameStateChange;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -21,10 +22,10 @@ public class demo implements CommandExecutor {
                     ((CraftPlayer) t).getHandle().playerConnection.sendPacket(packet);
                     sender.sendMessage(ChatColor.AQUA + t.getName() + ChatColor.DARK_AQUA + " just got demo'd!");
                 } else {
-                    sender.sendMessage(ChatColor.RED + "That player doesn't exist, did you make a typo?");
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&',Main.prefix + " " + Main.noplr));
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /demo (target's username)");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmddemo));
             }
         }
         return false;

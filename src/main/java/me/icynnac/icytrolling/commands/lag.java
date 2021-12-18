@@ -75,13 +75,13 @@ public class lag implements CommandExecutor {
                                 break;
                         }
                     } else {
-                        sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /lag (target's username) (time)");
+                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdlag));
                     }
                 } else {
-                    sender.sendMessage(ChatColor.RED + "That player doesn't exist, did you make a typo?");
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&',Main.prefix + " " + Main.noplr));
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /lag (target's username) (time)");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdlag));
             }
         }
         return false;

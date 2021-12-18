@@ -1,5 +1,6 @@
 package me.icynnac.icytrolling.commands;
 
+import me.icynnac.icytrolling.Main;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -33,14 +34,14 @@ public class fling implements CommandExecutor {
                                 sender.sendMessage(ChatColor.RED + "Fling multiplier cannot be bigger than four.");
                             }
                         } else {
-                            sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /fling (target's username) (multiplier)");
+                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdfling));
                         }
                     }
                 } else {
-                    sender.sendMessage(ChatColor.RED + "That player doesn't exist, did you make a typo?");
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&',Main.prefix + " " + Main.noplr));
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "That command doesn't look right, try: /fling (target's username) (multiplier)");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + " " + Main.badcmdfling));
             }
         }
         return false;

@@ -1,0 +1,13 @@
+# Use standard color codes to color these messages.
+messages:
+  prefix: '&3&lIcy&b&lTroll &8&l>>'
+  invalid-player: "&cThat player doesn't exist, did you make a typo?"
+
+  invalid-cmd-demo: "&cThat command doesn't look right, try: /demo (target's username)"
+  invalid-cmd-drop: "&cThat command doesn't look right, try: /drop (target's username) [main/offhand/both]"
+  invalid-cmd-explode: "&cThat command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]"
+  invalid-cmd-fire: "&cThat command doesn't look right, try: /burn (target's username) (time in ticks)"
+  invalid-cmd-fling: "&cThat command doesn't look right, try: /fling (target's username) (multiplier)"
+  invalid-cmd-levitate: "&cThat command doesn't look right, try: /levitate (target's username) (effect power)"
+  invalid-cmd-lag: "&cThat command doesn't look right, try: /lag (target's username) (time)"
+  invalid-cmd-pumpkin: "&cThat command doesn't look right, try: /pumpkin (target's username) [on/off]"

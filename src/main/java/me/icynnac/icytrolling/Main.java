@@ -64,5 +64,6 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(getCommand("demo")).setPermissionMessage("no.");
 
         saveDefaultConfig();
+
     }
 }

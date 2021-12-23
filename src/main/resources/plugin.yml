@@ -1,7 +1,6 @@
 name: IcyTrolling
 version: B-0.1
 main: me.icynnac.icytrolling.Main
-api-version: 1.16
 commands:
   icytroll:
     description: A command for stuff about the plugin.
@@ -30,3 +29,6 @@ commands:
   demo:
     description: You should pay for Minecraft.
     permission: icytroll.demo
+  scam:
+    description: Hello your computer have virus
+    permission: icytroll.scam

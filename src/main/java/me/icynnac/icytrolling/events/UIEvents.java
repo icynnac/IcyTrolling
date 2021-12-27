@@ -29,17 +29,17 @@ public class UIEvents implements Listener {
                         player.closeInventory();
                         World w = player.getWorld();
                         w.createExplosion(player.getLocation(), 5, true);
-                        player.sendMessage("§cGet scammed noob.");
+                        player.sendMessage("§cGet scammed noob, your land has been stolen.");
                         break;
                     case 1:
                         player.closeInventory();
                         player.setHealth(0);
-                        player.sendMessage("§cGet scammed noob.");
+                        player.sendMessage("§cGet scammed noob, your life has been stolen.");
                         break;
                     case 2:
                         player.closeInventory();
                         player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 100000, 3));
-                        player.sendMessage("§cGet scammed noob.");
+                        player.sendMessage("§cGet scammed noob, your health is being stolen.");
                         break;
                     case 3:
                         player.closeInventory();
@@ -48,13 +48,13 @@ public class UIEvents implements Listener {
                         ed.setDisplayName("§aEmerald");
                         epicdirt.setItemMeta(ed);
                         player.getInventory().addItem(epicdirt);
-                        player.sendMessage("§cGet scammed noob.");
+                        player.sendMessage("§cGet scammed noob, have an \"Emerald.\"");
                         break;
                     case 4:
                         player.closeInventory();
                         player.setMaxHealth(2);
                         playerDecreasedHealth.put(player.getUniqueId(), true);
-                        player.sendMessage("§cGet scammed noob.");
+                        player.sendMessage("§cGet scammed noob, your health has been stolen.");
                         break;
                 }
             }

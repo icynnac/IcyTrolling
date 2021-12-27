@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitScheduler;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CmdLag implements TabExecutor {
@@ -26,11 +26,11 @@ public class CmdLag implements TabExecutor {
                         BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
                         if (StringUtils.isNumeric(args[1])) {
                             int num = Integer.parseInt(args[1]);
-                            if (0 < num && num < 21) {
+                            if (0 < num && num < 61) {
                                 int oneSec = scheduler.scheduleSyncRepeatingTask(Main.plugin, () -> t.teleport(t.getLocation()), 0, 3);
                                 sender.sendMessage("§b" + t.getName() + "§3 is now lagging!");
                                 scheduler.scheduleSyncDelayedTask(Main.plugin, () -> scheduler.cancelTask(oneSec), 20 * num);
-                            } else sender.sendMessage("§cInvalid time, maximum lag time is 20s.");
+                            } else sender.sendMessage("§cLag time cannot be less than 1 or bigger than 60.");
                         } else InvalidCommand.LAG.sendMessage(sender);
                     } else InvalidCommand.LAG.sendMessage(sender);
                 } else InvalidCommand.NO_PLAYER.sendMessage(sender);
@@ -41,7 +41,7 @@ public class CmdLag implements TabExecutor {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 1) return null;
-        if (args.length == 2) return new ArrayList<>(Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"));
+        if (args.length == 2) return new ArrayList<>(Collections.singletonList("<Length in Seconds>"));
         return new ArrayList<>();
     }
 }

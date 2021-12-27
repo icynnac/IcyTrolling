@@ -17,7 +17,8 @@ public enum InvalidCommand {
     LAG(7),
     PUMPKIN(8),
     SCAM(9),
-    CONFIG(10);
+    FAKEEXPLODE(10),
+    CONFIG(11);
 
     public final int id;
 

@@ -27,8 +27,8 @@ public class CmdExplode implements TabExecutor {
                             w.createExplosion(target.getLocation(), str, Boolean.parseBoolean(args[2].toLowerCase()));
                             sender.sendMessage("§b" + target.getName() + " §3has been blown up!");
                             return true;
-                        } return InvalidCommand.EXPLODE.sendMessage(sender);
-                    } return InvalidCommand.EXPLODE.sendMessage(sender);
+                        } else return InvalidCommand.EXPLODE.sendMessage(sender);
+                    } else return InvalidCommand.EXPLODE.sendMessage(sender);
                 } else return InvalidCommand.NO_PLAYER.sendMessage(sender);
             } else return InvalidCommand.EXPLODE.sendMessage(sender);
         } return true;

@@ -17,6 +17,7 @@ public final class Main extends JavaPlugin {
     public static Main plugin;
 
     public static HashMap<UUID, ItemStack> playerPumpkinHeads = new HashMap<>();
+    public static HashMap<UUID, Boolean> playerDecreasedHealth = new HashMap<>();
     public static String prefix;
 
     @Override
@@ -32,7 +33,6 @@ public final class Main extends JavaPlugin {
         getCommand("explode").setPermissionMessage("no.");
         getCommand("pumpkin").setPermissionMessage("no.");
         getCommand("fling").setPermissionMessage("no.");
-        getCommand("demo").setPermissionMessage("no.");
         getCommand("burn").setPermissionMessage("no.");
         getCommand("drop").setPermissionMessage("no.");
         getCommand("lag").setPermissionMessage("no.");
@@ -43,11 +43,17 @@ public final class Main extends JavaPlugin {
         getCommand("explode").setExecutor(new CmdExplode());
         getCommand("pumpkin").setExecutor(new CmdPumpkin());
         getCommand("fling").setExecutor(new CmdFling());
-        getCommand("demo").setExecutor(new CmdDemo());
         getCommand("burn").setExecutor(new CmdBurn());
         getCommand("drop").setExecutor(new CmdDrop());
         getCommand("lag").setExecutor(new CmdLag());
         getCommand("scam").setExecutor(new CmdScam());
+
+        if (Bukkit.getVersion().contains("1.12.2")) {
+            getCommand("demo").setExecutor(new CmdDemo());
+            getCommand("demo").setPermissionMessage("no.");
+        } else {
+            Bukkit.getConsoleSender().sendMessage("§a§lIcy§3§lTrolling §8§l>> §cYou are not on 1.12.2, the /demo troll is disabled.");
+        }
 
         saveDefaultConfig();
 
@@ -64,5 +70,7 @@ public final class Main extends JavaPlugin {
     public void onDisable() {
         for (UUID uuid : playerPumpkinHeads.keySet())
             Bukkit.getOfflinePlayer(uuid).getPlayer().getEquipment().setHelmet(playerPumpkinHeads.get(uuid));
+        for (UUID uuid : playerDecreasedHealth.keySet())
+            Bukkit.getOfflinePlayer(uuid).getPlayer().setMaxHealth(20);
     }
 }

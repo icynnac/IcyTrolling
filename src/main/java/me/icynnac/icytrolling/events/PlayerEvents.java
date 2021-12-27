@@ -28,6 +28,10 @@ public class PlayerEvents implements Listener {
             e.getPlayer().getEquipment().setHelmet(Main.playerPumpkinHeads.get(e.getPlayer().getUniqueId()));
             Main.playerPumpkinHeads.remove(e.getPlayer().getUniqueId());
         }
+        if (Main.playerDecreasedHealth.containsKey(e.getPlayer().getUniqueId())) {
+            e.getPlayer().setMaxHealth(20);
+            Main.playerDecreasedHealth.remove(e.getPlayer().getUniqueId());
+        }
     }
 
     @EventHandler
@@ -42,5 +46,9 @@ public class PlayerEvents implements Listener {
     @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent e) {
         if (Main.playerPumpkinHeads.containsKey(e.getPlayer().getUniqueId())) e.getPlayer().getEquipment().setHelmet(getPumpkin());
+        if (Main.playerDecreasedHealth.containsKey(e.getPlayer().getUniqueId())) {
+            e.getPlayer().setMaxHealth(20);
+            Main.playerDecreasedHealth.remove(e.getPlayer().getUniqueId());
+        }
     }
 }

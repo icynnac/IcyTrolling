@@ -12,3 +12,4 @@ messages:
   invalid-cmd-lag: "&cThat command doesn't look right, try: /lag (target's username) (time)"
   invalid-cmd-pumpkin: "&cThat command doesn't look right, try: /pumpkin (target's username) [on/off]"
   invalid-cmd-scam: "&cThat command doesn't look right, try: /scam (target's username)"
+  invalid-cmd-fakeexplode: "&cThat command doesn't look right, try: /fakeexplode (target's username)"

@@ -18,6 +18,7 @@ public final class Main extends JavaPlugin {
 
     public static HashMap<UUID, ItemStack> playerPumpkinHeads = new HashMap<>();
     public static HashMap<UUID, Boolean> playerDecreasedHealth = new HashMap<>();
+
     public static String prefix;
 
     @Override
@@ -37,6 +38,8 @@ public final class Main extends JavaPlugin {
         getCommand("drop").setPermissionMessage("no.");
         getCommand("lag").setPermissionMessage("no.");
         getCommand("scam").setPermissionMessage("no.");
+        getCommand("fakeexplode").setPermissionMessage("no.");
+        getCommand("rotate").setPermissionMessage("no.");
 
         getCommand("levitate").setExecutor(new CmdLevitate());
         getCommand("icytroll").setExecutor(new CmdIcyTroll());
@@ -47,21 +50,23 @@ public final class Main extends JavaPlugin {
         getCommand("drop").setExecutor(new CmdDrop());
         getCommand("lag").setExecutor(new CmdLag());
         getCommand("scam").setExecutor(new CmdScam());
+        getCommand("fakeexplode").setExecutor(new CmdFakeExplode());
+        getCommand("rotate").setExecutor(new CmdRotate());
 
         if (Bukkit.getVersion().contains("1.12.2")) {
             getCommand("demo").setExecutor(new CmdDemo());
             getCommand("demo").setPermissionMessage("no.");
         } else {
-            Bukkit.getConsoleSender().sendMessage("§a§lIcy§3§lTrolling §8§l>> §cYou are not on 1.12.2, the /demo troll is disabled.");
+            Bukkit.getConsoleSender().sendMessage("§b§lIcy§3§lTrolling §8§l>> §cYou are not on 1.12.2, the /demo troll is disabled.");
         }
 
         saveDefaultConfig();
 
         new UpdateChecker(this, 98539).getVersion(version -> {
             if (!this.getDescription().getVersion().equalsIgnoreCase(version)) {
-                Bukkit.getConsoleSender().sendMessage("§a§lIcy§3§lTrolling §8§l>> §eThere's a new version available! Head to the spigot page (/icytroll info) to get the latest version.");
+                Bukkit.getConsoleSender().sendMessage("§b§lIcy§3§lTrolling §8§l>> §eThere's a new version available! Head to the spigot page (/icytroll info) to get the latest version.");
             } else {
-                Bukkit.getConsoleSender().sendMessage("§a§lIcy§3§lTrolling §8§l>> §aYou're on the latest version.");
+                Bukkit.getConsoleSender().sendMessage("§b§lIcy§3§lTrolling §8§l>> §aYou're on the latest version.");
             }
         });
     }

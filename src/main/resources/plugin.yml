@@ -30,5 +30,11 @@ commands:
     description: You should pay for Minecraft.
     permission: icytroll.demo
   scam:
-    description: Hello your computer have virus
+    description: Helo your computer have virus
     permission: icytroll.scam
+  fakeexplode:
+    description: Boom? Nope.
+    permission: icytroll.fakeexplode
+  rotate:
+    description: Rotate someone to mess up their travel.
+    permission: icytroll.rotate

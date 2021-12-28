@@ -18,7 +18,9 @@ public enum InvalidCommand {
     PUMPKIN(8),
     SCAM(9),
     FAKEEXPLODE(10),
-    CONFIG(11);
+    SPIN(11),
+    ROTATE(12),
+    CONFIG(13);
 
     public final int id;
 

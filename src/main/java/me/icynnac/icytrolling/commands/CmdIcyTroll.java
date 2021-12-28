@@ -2,7 +2,7 @@ package me.icynnac.icytrolling.commands;
 
 import me.icynnac.icytrolling.Main;
 import me.icynnac.icytrolling.utils.InvalidCommand;
-import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -23,6 +23,9 @@ public class CmdIcyTroll implements TabExecutor {
                 switch(args[0].toLowerCase()) {
                     default:
                         mainMenu(sender);
+                        break;
+                    case "2":
+                        mainMenu2(sender);
                         break;
                     case "burn":
                         sender.sendMessage("§3§m--------------|§b§lIcyTrolling§3§m|--------------");
@@ -55,6 +58,13 @@ public class CmdIcyTroll implements TabExecutor {
                         sendInteractiveMessage(sender, "§6Usage: /explode (target player's name) (explosion power)", "/explode ", ClickEvent.Action.SUGGEST_COMMAND, "Click to use /explode");
                         sender.sendMessage("§3§m--------------|-----------|--------------");
                         break;
+                    case "fakeexplode":
+                        sender.sendMessage("§3§m--------------|§b§lIcyTrolling§3§m|--------------");
+                        sender.sendMessage("§bIt's like /explode, but all a hoax.");
+                        sender.sendMessage("§b§mJust like those darn bird cameras.");
+                        sendInteractiveMessage(sender, "§6Usage: /fakeexplode (target player's name)", "/fakeexplode ", ClickEvent.Action.SUGGEST_COMMAND, "Click to use /fakeexplode");
+                        sender.sendMessage("§3§m--------------|-----------|--------------");
+                        break;
                     case "fling":
                         sender.sendMessage("§3§m--------------|§b§lIcyTrolling§3§m|--------------");
                         sender.sendMessage("§bSend someone to the sun!");
@@ -72,6 +82,18 @@ public class CmdIcyTroll implements TabExecutor {
                         sender.sendMessage("§3SpigotMC:");
                         sendInteractiveMessage(sender, "§bhttps://www.spigotmc.org/resources/icytrolling.98539/", "https://www.spigotmc.org/resources/icytrolling.98539/", ClickEvent.Action.OPEN_URL, "Click to open the Spigot page");
                         sender.sendMessage("§3§m--------------|-----------|--------------");
+                        break;
+                    case "help":
+                        if (args.length > 1) {
+                            switch (args[1].toLowerCase()) {
+                                case "1":
+                                    mainMenu(sender);
+                                    break;
+                                case "2":
+                                    mainMenu2(sender);
+                                    break;
+                            }
+                        } else mainMenu(sender);
                         break;
                     case "lag":
                         sender.sendMessage("§3§m--------------|§b§lIcyTrolling§3§m|--------------");
@@ -93,6 +115,20 @@ public class CmdIcyTroll implements TabExecutor {
                         sender.sendMessage("§bPut a really inconvenient hat on someone's head!");
                         sender.sendMessage("§b(It's very inconvenient because it has curse of binding.)");
                         sendInteractiveMessage(sender, "§6Usage: /pumpkin (target player's name) [on/off]", "/pumpkin ", ClickEvent.Action.SUGGEST_COMMAND, "Click to use /pumpkin");
+                        sender.sendMessage("§3§m--------------|-----------|--------------");
+                        break;
+                    case "rotate":
+                        sender.sendMessage("§3§m--------------|§b§lIcyTrolling§3§m|--------------");
+                        sender.sendMessage("§bperson, rot tat e");
+                        sendInteractiveMessage(sender, "§6Usage: /rotate (target player's name) (rotation in degrees)", "/rotate ", ClickEvent.Action.SUGGEST_COMMAND, "Click to use /rotate");
+                        sender.sendMessage("§3§m--------------|-----------|--------------");
+                        break;
+                    case "scam":
+                        sender.sendMessage("§3§m--------------|§b§lIcyTrolling§3§m|--------------");
+                        sender.sendMessage("§bGive someone a chance to get free emeralds!");
+                        sender.sendMessage("§bNothing bad can happen, right? RIGHT?");
+                        sender.sendMessage("§cWarning: This command can damage terrain, do not use this near any builds.");
+                        sendInteractiveMessage(sender, "§6Usage: /scam (target player's name)", "/scam ", ClickEvent.Action.SUGGEST_COMMAND, "Click to use /scam");
                         sender.sendMessage("§3§m--------------|-----------|--------------");
                         break;
                     case "config":
@@ -120,19 +156,29 @@ public class CmdIcyTroll implements TabExecutor {
         sendInteractiveMessage(sender, "§b§l/demo §3- Classic Demo Screen troll.", "/icytroll demo", ClickEvent.Action.RUN_COMMAND,  "Click to see /demo info.");
         sendInteractiveMessage(sender, "§b§l/drop §3- Make someone drop what's in their hands.", "/icytroll drop", ClickEvent.Action.RUN_COMMAND,  "Click to see /drop info.");
         sendInteractiveMessage(sender, "§b§l/explode §c- Kaboom.", "/icytroll explode", ClickEvent.Action.RUN_COMMAND,  "Click to see /explode info.");
+        sendInteractiveMessage(sender, "§b§l/fakeexplode §c- Kabo- §3Oh, false alarm.", "/icytroll fakeexplode", ClickEvent.Action.RUN_COMMAND,  "Click to see /fakeexplode info.");
         sendInteractiveMessage(sender, "§b§l/fling §3- Throw someone in the air.", "/icytroll fling", ClickEvent.Action.RUN_COMMAND,  "Click to see /fling info.");
+        sendInteractiveMessage(sender, "§b§l/icytroll §3- Oh hey, it's this command!", "/icytroll info", ClickEvent.Action.RUN_COMMAND,  "Click to see IcyTrolling plugin info.");
+        sendInteractiveMessage(sender, "§3§m--------------|§bPage 1§3§m|--------------", "/icytroll help 2", ClickEvent.Action.RUN_COMMAND, "Click to go to page 2");
+    }
+    void mainMenu2(CommandSender sender) {
+        sender.sendMessage("§3§m--------------|§b§lIcyTrolling§3§m|--------------");
         sendInteractiveMessage(sender, "§b§l/lag §3- Give someone my internet.", "/icytroll lag", ClickEvent.Action.RUN_COMMAND,  "Click to see /lag info.");
         sendInteractiveMessage(sender, "§b§l/levitate §3- Send someone slowly to the sun.", "/icytroll levitate", ClickEvent.Action.RUN_COMMAND,  "Click to see /levitate info.");
         sendInteractiveMessage(sender, "§b§l/pumpkin §3- Give someone a pumpkin hat!", "/icytroll pumpkin", ClickEvent.Action.RUN_COMMAND,  "Click to see /pumpkin info.");
-        sender.sendMessage("§3§m--------------|-----------|--------------");
+        sendInteractiveMessage(sender, "§b§l/rotate §3- speeeeeeeeen", "/icytroll rotate", ClickEvent.Action.RUN_COMMAND, "Click to see /rotate info");
+        sendInteractiveMessage(sender, "§b§l/scam §3- helo ur computer hav virus", "/icytroll scam", ClickEvent.Action.RUN_COMMAND, "Click to see /scam info");
+        sendInteractiveMessage(sender, "§3§m--------------|§bPage 2§3§m|--------------", "/icytroll help 1", ClickEvent.Action.RUN_COMMAND, "Click to go to page 1");
     }
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 1) return new ArrayList<>(Arrays.asList("config", "demo",
-                "drop", "explode", "burn", "fling", "info", "lag", "levitate", "pumpkin"));
+                "drop", "explode", "burn", "fling", "fakeexplode", "help", "info", "lag", "levitate", "pumpkin", "rotate", "scam"));
         if (args.length == 2) if (args[0].equalsIgnoreCase("config"))
             return new ArrayList<>(Arrays.asList("reset", "reload"));
+        if (args.length == 2) if (args[0].equalsIgnoreCase("help"))
+            return new ArrayList<>(Arrays.asList("1", "2"));
         return new ArrayList<>();
     }
 }

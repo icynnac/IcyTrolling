@@ -1,5 +1,5 @@
 name: IcyTrolling
-version: B-0.1
+version: B-0.2
 main: me.icynnac.icytrolling.Main
 commands:
   icytroll:

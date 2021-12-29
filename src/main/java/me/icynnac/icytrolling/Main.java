@@ -3,7 +3,6 @@ package me.icynnac.icytrolling;
 import me.icynnac.icytrolling.commands.*;
 import me.icynnac.icytrolling.events.PlayerEvents;
 import me.icynnac.icytrolling.events.UIEvents;
-import me.icynnac.icytrolling.utils.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
@@ -33,6 +32,7 @@ public final class Main extends JavaPlugin {
         getCommand("icytroll").setPermissionMessage("no.");
         getCommand("explode").setPermissionMessage("no.");
         getCommand("pumpkin").setPermissionMessage("no.");
+        getCommand("demo").setPermissionMessage("no.");
         getCommand("fling").setPermissionMessage("no.");
         getCommand("burn").setPermissionMessage("no.");
         getCommand("drop").setPermissionMessage("no.");
@@ -45,6 +45,7 @@ public final class Main extends JavaPlugin {
         getCommand("icytroll").setExecutor(new CmdIcyTroll());
         getCommand("explode").setExecutor(new CmdExplode());
         getCommand("pumpkin").setExecutor(new CmdPumpkin());
+        getCommand("demo").setExecutor(new CmdDemo());
         getCommand("fling").setExecutor(new CmdFling());
         getCommand("burn").setExecutor(new CmdBurn());
         getCommand("drop").setExecutor(new CmdDrop());
@@ -53,22 +54,15 @@ public final class Main extends JavaPlugin {
         getCommand("fakeexplode").setExecutor(new CmdFakeExplode());
         getCommand("rotate").setExecutor(new CmdRotate());
 
-        if (Bukkit.getVersion().contains("1.12.2")) {
-            getCommand("demo").setExecutor(new CmdDemo());
-            getCommand("demo").setPermissionMessage("no.");
-        } else {
-            Bukkit.getConsoleSender().sendMessage("§b§lIcy§3§lTrolling §8§l>> §cYou are not on 1.12.2, the /demo troll is disabled.");
-        }
-
         saveDefaultConfig();
 
-        new UpdateChecker(this, 98539).getVersion(version -> {
-            if (!this.getDescription().getVersion().equalsIgnoreCase(version)) {
-                Bukkit.getConsoleSender().sendMessage("§b§lIcy§3§lTrolling §8§l>> §eThere's a new version available! Head to the spigot page (/icytroll info) to get the latest version.");
-            } else {
-                Bukkit.getConsoleSender().sendMessage("§b§lIcy§3§lTrolling §8§l>> §aYou're on the latest version.");
-            }
-        });
+        //new UpdateChecker(this, 98539).getVersion(version -> {
+        // if (!this.getDescription().getVersion().equalsIgnoreCase(version)) {
+        //      Bukkit.getConsoleSender().sendMessage("§b§lIcy§3§lTrolling §8§l>> §eThere's a new version available! Head to the spigot page (/icytroll info) to get the latest version.");
+        //  } else {
+        //      Bukkit.getConsoleSender().sendMessage("§b§lIcy§3§lTrolling §8§l>> §aYou're on the latest version.");
+        //  }
+        //});
     }
 
     @Override

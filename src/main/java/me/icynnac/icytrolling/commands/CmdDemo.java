@@ -1,12 +1,11 @@
 package me.icynnac.icytrolling.commands;
 
 import me.icynnac.icytrolling.utils.InvalidCommand;
-import net.minecraft.server.v1_12_R1.PacketPlayOutGameStateChange;
+import me.icynnac.icytrolling.utils.Packets;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -19,8 +18,7 @@ public class CmdDemo implements TabExecutor {
             if (args.length > 0) {
                 Player t = Bukkit.getPlayer(args[0]);
                 if (t != null) {
-                    final PacketPlayOutGameStateChange packet = new PacketPlayOutGameStateChange(5, 0.0F);
-                    ((CraftPlayer) t).getHandle().playerConnection.sendPacket(packet);
+                    new Packets().sendDemoPacket(t);
                     sender.sendMessage("§b" + t.getName() + "§3 just got demo'd!");
                 } else return InvalidCommand.NO_PLAYER.sendMessage(sender);
             } else return InvalidCommand.DEMO.sendMessage(sender);

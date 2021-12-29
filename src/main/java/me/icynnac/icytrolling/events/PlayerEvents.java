@@ -1,6 +1,7 @@
 package me.icynnac.icytrolling.events;
 
 import me.icynnac.icytrolling.Main;
+import me.icynnac.icytrolling.utils.ServerVersion;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.EventHandler;
@@ -12,15 +13,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class PlayerEvents implements Listener {
-
-    ItemStack getPumpkin() {
-        ItemStack pumpkin = new ItemStack(Material.PUMPKIN);
-        ItemMeta pMeta = pumpkin.getItemMeta();
-        pMeta.setDisplayName("§c§lReally Inconvenient Hat!");
-        pMeta.addEnchant(Enchantment.BINDING_CURSE, 1, true);
-        pumpkin.setItemMeta(pMeta);
-        return pumpkin;
-    }
 
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent e) {
@@ -35,17 +27,15 @@ public class PlayerEvents implements Listener {
     }
 
     @EventHandler
-    public void onPlayerDeath(PlayerDeathEvent e) {
-        if (e.getDrops().contains(getPumpkin())) {
-            e.getDrops().remove(getPumpkin());
-            e.getDrops().add(Main.playerPumpkinHeads.get(e.getEntity().getUniqueId()));
-            Main.playerPumpkinHeads.put(e.getEntity().getUniqueId(), new ItemStack(Material.AIR));
-        }
-    }
-
-    @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent e) {
-        if (Main.playerPumpkinHeads.containsKey(e.getPlayer().getUniqueId())) e.getPlayer().getEquipment().setHelmet(getPumpkin());
+        if (Main.playerPumpkinHeads.containsKey(e.getPlayer().getUniqueId())) {
+            ItemStack pumpkin = new ItemStack(Material.PUMPKIN);
+            ItemMeta pMeta = pumpkin.getItemMeta();
+            pMeta.setDisplayName("§c§lReally Inconvenient Hat!");
+            pMeta.addEnchant(Enchantment.BINDING_CURSE, 1, true);
+            pumpkin.setItemMeta(pMeta);
+            e.getPlayer().getEquipment().setHelmet(pumpkin);
+        }
         if (Main.playerDecreasedHealth.containsKey(e.getPlayer().getUniqueId())) {
             e.getPlayer().setMaxHealth(20);
             Main.playerDecreasedHealth.remove(e.getPlayer().getUniqueId());

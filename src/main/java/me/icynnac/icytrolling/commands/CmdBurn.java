@@ -23,8 +23,10 @@ public class CmdBurn implements TabExecutor {
                     if (args.length > 1) {
                         if (StringUtils.isNumeric(args[1])) {
                             int firelength = Integer.parseInt(args[1]) * 20;
-                            t.setFireTicks(firelength);
-                            sender.sendMessage("§b" + t.getName() + "§3 is now on fire for §b" + args[1] + "§3 ticks.");
+                            if (0 < firelength) {
+                                t.setFireTicks(firelength);
+                                sender.sendMessage("§b" + t.getName() + "§3 is now on fire for §b" + args[1] + "§3 seconds.");
+                            } else sender.sendMessage("§cBurn time cannot be less than 1.");
                         } else return InvalidCommand.FIRE.sendMessage(sender);
                     } else return InvalidCommand.FIRE.sendMessage(sender);
                 } else return InvalidCommand.NO_PLAYER.sendMessage(sender);

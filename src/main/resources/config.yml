@@ -2,11 +2,13 @@
 messages:
   prefix: '&3&lIcy&b&lTroll &8&l>>'
   invalid-player: "&cThat person doesn't exist, did you make a typo?"
+  outdated-version: "&cThis command is made for a newer version of minecraft."
 
   invalid-cmd-demo: "&cThat command doesn't look right, try: /demo (target's username)"
+  invalid-cmd-drop-legacy: "&cThat command doesn't look right, try: /drop (target's username)"
   invalid-cmd-drop: "&cThat command doesn't look right, try: /drop (target's username) [main/offhand/both]"
   invalid-cmd-explode: "&cThat command doesn't look right, try: /explode (target's username) (explosion power) [fire true/false]"
-  invalid-cmd-fire: "&cThat command doesn't look right, try: /burn (target's username) (time in ticks)"
+  invalid-cmd-fire: "&cThat command doesn't look right, try: /burn (target's username) (time in seconds)"
   invalid-cmd-fling: "&cThat command doesn't look right, try: /fling (target's username) (multiplier)"
   invalid-cmd-levitate: "&cThat command doesn't look right, try: /levitate (target's username) (effect power)"
   invalid-cmd-lag: "&cThat command doesn't look right, try: /lag (target's username) (time)"
@@ -14,3 +16,4 @@ messages:
   invalid-cmd-scam: "&cThat command doesn't look right, try: /scam (target's username)"
   invalid-cmd-fakeexplode: "&cThat command doesn't look right, try: /fakeexplode (target's username)"
   invalid-cmd-rotate: "&cThat command doesn't look right, try: /rotate (target's username) (rotation number)"
+  invalid-cmd-config: "&cThat command doesn't look right, try: /icytroll config [reload/reset]"

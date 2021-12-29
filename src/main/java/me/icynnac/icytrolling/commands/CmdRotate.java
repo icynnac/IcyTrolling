@@ -29,10 +29,10 @@ public class CmdRotate implements TabExecutor {
                                 t.teleport(loc);
                                 t.sendMessage("§b" + t.getName() + "§3 has been spun §b" + yaw + "§3 degrees!");
                             } else sender.sendMessage("§cSpin number cannot be less than 1 or bigger than 360.");
-                        } else return InvalidCommand.SPIN.sendMessage(sender);
-                    } else return InvalidCommand.SPIN.sendMessage(sender);
+                        } else return InvalidCommand.ROTATE.sendMessage(sender);
+                    } else return InvalidCommand.ROTATE.sendMessage(sender);
                 } else return InvalidCommand.NO_PLAYER.sendMessage(sender);
-            } else return InvalidCommand.SPIN.sendMessage(sender);
+            } else return InvalidCommand.ROTATE.sendMessage(sender);
         } return true;
     }
 

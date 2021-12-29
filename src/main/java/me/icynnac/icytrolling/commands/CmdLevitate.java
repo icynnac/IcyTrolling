@@ -1,6 +1,7 @@
 package me.icynnac.icytrolling.commands;
 
 import me.icynnac.icytrolling.utils.InvalidCommand;
+import me.icynnac.icytrolling.utils.ServerVersion;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -19,6 +20,10 @@ public class CmdLevitate implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender.hasPermission("icytroll.levitate")) {
+            if (ServerVersion.get.roundedFromServer().getId() < 9) {
+                InvalidCommand.OUTDATED_VERSION.sendMessage(sender);
+                return true;
+            }
             if (args.length > 0) {
                 Player t = Bukkit.getPlayer(args[0]);
                 if (t != null) {

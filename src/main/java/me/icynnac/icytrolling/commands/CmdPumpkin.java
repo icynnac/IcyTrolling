@@ -2,6 +2,7 @@ package me.icynnac.icytrolling.commands;
 
 import me.icynnac.icytrolling.Main;
 import me.icynnac.icytrolling.utils.InvalidCommand;
+import me.icynnac.icytrolling.utils.ServerVersion;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -20,6 +21,10 @@ public class CmdPumpkin implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender.hasPermission("icytroll.pumpkin")) {
+            if (ServerVersion.get.roundedFromServer().getId() < 11) {
+                InvalidCommand.OUTDATED_VERSION.sendMessage(sender);
+                return true;
+            }
             if (args.length > 0) {
                 Player t = Bukkit.getPlayer(args[0]);
                 if (t != null) {

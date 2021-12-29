@@ -1,6 +1,7 @@
 package me.icynnac.icytrolling.commands;
 
 import me.icynnac.icytrolling.utils.InvalidCommand;
+import me.icynnac.icytrolling.utils.ServerVersion;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -23,11 +24,13 @@ public class CmdDrop implements TabExecutor {
             if (args.length > 0) {
                 Player t = Bukkit.getPlayer(args[0]);
                 if (t != null) {
-                    if (args.length > 1) {
-                        if (args[1].equalsIgnoreCase("offhand") || args[1].equalsIgnoreCase("main")
-                                || args[1].equalsIgnoreCase("both")) dropItem(sender, t, args[1].toLowerCase());
-                        else return InvalidCommand.DROP.sendMessage(sender);
-                    } else return InvalidCommand.DROP.sendMessage(sender);
+                    if (ServerVersion.get.roundedFromServer().getId() > 8) {
+                        if (args.length > 1) {
+                            if (args[1].equalsIgnoreCase("offhand") || args[1].equalsIgnoreCase("main")
+                                    || args[1].equalsIgnoreCase("both")) dropItem(sender, t, args[1].toLowerCase());
+                            else return InvalidCommand.DROP.sendMessage(sender);
+                        } else return InvalidCommand.DROP.sendMessage(sender);
+                    } else dropItem(sender, t, "main");
                 } else return InvalidCommand.NO_PLAYER.sendMessage(sender);
             } else return InvalidCommand.DROP.sendMessage(sender);
         } return true;
@@ -38,9 +41,13 @@ public class CmdDrop implements TabExecutor {
             dropItem(sender, t, "offhand");
             dropItem(sender, t, "main");
             return;
-        } ItemStack handItem = t.getInventory().getItemInMainHand();
+        } ItemStack handItem;
         if (slot.equalsIgnoreCase("offhand")) handItem = t.getInventory().getItemInOffHand();
-        if (handItem.getType().isTransparent()) {
+        else {
+            if (!ServerVersion.get.roundedFromServer().isLegacy()) handItem = t.getInventory().getItemInMainHand();
+            else handItem = t.getInventory().getItemInHand();
+        }
+        if (handItem.getType().equals(Material.AIR)) {
             if (slot.equalsIgnoreCase("offhand")) sender.sendMessage("§cTarget isn't holding any item in their offhand.");
             if (slot.equalsIgnoreCase("main")) sender.sendMessage("§cTarget isn't holding any item in their main hand.");
         } else {
@@ -49,7 +56,8 @@ public class CmdDrop implements TabExecutor {
             drop.setPickupDelay(40);
             drop.setVelocity(t.getLocation().getDirection());
             if (slot.equalsIgnoreCase("main")) {
-                t.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+                if (!ServerVersion.get.roundedFromServer().isLegacy()) t.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+                else t.getInventory().setItemInHand(new ItemStack(Material.AIR));
                 sender.sendMessage("§3Dropped the item in §b" + t.getName() + "§3's main hand.");
             }
             if (slot.equalsIgnoreCase("offhand")) {
@@ -62,7 +70,10 @@ public class CmdDrop implements TabExecutor {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 1) return null;
-        if (args.length == 2) return new ArrayList<>(Arrays.asList("offhand", "main", "both"));
+        if (args.length == 2) {
+            if (ServerVersion.get.roundedFromServer().getId() > 8) return new ArrayList<>(Arrays.asList("offhand", "main", "both"));
+            else return new ArrayList<>();
+        }
         return new ArrayList<>();
     }
 }

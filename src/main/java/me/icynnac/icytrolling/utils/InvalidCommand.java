@@ -7,7 +7,8 @@ import org.bukkit.command.CommandSender;
 import static me.icynnac.icytrolling.Main.plugin;
 
 public enum InvalidCommand {
-    OUTDATED_VERSION(-1),
+    NEWER_VERSION(-2),
+    OLDER_VERSION(-1),
     NO_PLAYER(0),
     DEMO(1),
     DROP(2),
@@ -19,9 +20,8 @@ public enum InvalidCommand {
     PUMPKIN(8),
     SCAM(9),
     FAKEEXPLODE(10),
-    SPIN(11),
-    ROTATE(12),
-    CONFIG(13);
+    ROTATE(11),
+    CONFIG(12);
 
     public final int id;
 
@@ -32,7 +32,8 @@ public enum InvalidCommand {
         String node = "";
         if (id > 0) node = ("messages.invalid-cmd-" + this.toString().toLowerCase());
         else if (id == 0) node = "messages.invalid-player";
-        else if (id == -1) node = "messages.outdated-version";
+        else if (id == -1) node = "messages.older-version";
+        else if (id == -2) node = "messages.newer-version";
         if (this.equals(DROP) && ServerVersion.get.roundedFromServer().getId() < 9)
             node = "messages.invalid-cmd-drop-legacy";
         sb.append(plugin.getConfig().getString(node));

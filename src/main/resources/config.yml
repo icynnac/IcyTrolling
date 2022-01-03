@@ -2,7 +2,8 @@
 messages:
   prefix: '&3&lIcy&b&lTroll &8&l>>'
   invalid-player: "&cThat person doesn't exist, did you make a typo?"
-  outdated-version: "&cThis command is made for a newer version of minecraft."
+  newer-version: "&cThis command is made for a newer version of minecraft."
+  older-version: "&cThis command is made for an older version of minecraft."
 
   invalid-cmd-demo: "&cThat command doesn't look right, try: /demo (target's username)"
   invalid-cmd-drop-legacy: "&cThat command doesn't look right, try: /drop (target's username)"

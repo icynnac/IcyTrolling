@@ -1,12 +1,10 @@
 package me.icynnac.icytrolling.events;
 
 import me.icynnac.icytrolling.Main;
-import me.icynnac.icytrolling.utils.ServerVersion;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;

@@ -17,7 +17,7 @@ public class CmdFakeExplode implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (ServerVersion.get.roundedFromServer().getId() < 15) {
-            InvalidCommand.OUTDATED_VERSION.sendMessage(sender);
+            InvalidCommand.NEWER_VERSION.sendMessage(sender);
             return true;
         }
         if (sender.hasPermission("icytroll.fakeexplode")) {

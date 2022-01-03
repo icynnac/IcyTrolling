@@ -22,7 +22,7 @@ public class CmdPumpkin implements TabExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender.hasPermission("icytroll.pumpkin")) {
             if (ServerVersion.get.roundedFromServer().getId() < 11) {
-                InvalidCommand.OUTDATED_VERSION.sendMessage(sender);
+                InvalidCommand.NEWER_VERSION.sendMessage(sender);
                 return true;
             }
             if (args.length > 0) {

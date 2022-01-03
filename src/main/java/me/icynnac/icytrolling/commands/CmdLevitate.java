@@ -21,7 +21,7 @@ public class CmdLevitate implements TabExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender.hasPermission("icytroll.levitate")) {
             if (ServerVersion.get.roundedFromServer().getId() < 9) {
-                InvalidCommand.OUTDATED_VERSION.sendMessage(sender);
+                InvalidCommand.NEWER_VERSION.sendMessage(sender);
                 return true;
             }
             if (args.length > 0) {

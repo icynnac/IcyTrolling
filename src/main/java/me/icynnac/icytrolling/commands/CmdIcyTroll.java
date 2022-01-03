@@ -3,6 +3,7 @@ package me.icynnac.icytrolling.commands;
 import me.icynnac.icytrolling.Main;
 import me.icynnac.icytrolling.utils.InvalidCommand;
 import net.md_5.bungee.api.chat.*;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -140,11 +141,14 @@ public class CmdIcyTroll implements TabExecutor {
                                     Main.plugin.reloadConfig();
                                     break;
                                 case "reload":
-                                    Main.plugin.reloadConfig();
+                                    Bukkit.getPluginManager().disablePlugin(Main.plugin);
+                                    Bukkit.getPluginManager().getPlugin("IcyTrolling").reloadConfig();
+                                    Bukkit.getPluginManager().enablePlugin(Main.plugin);
                                     sender.sendMessage(Main.prefix + "§b config.yml has been reloaded.");
                                     break;
-                            } InvalidCommand.CONFIG.sendMessage(sender);
-                        } InvalidCommand.CONFIG.sendMessage(sender);
+                            }
+                        } else return InvalidCommand.CONFIG.sendMessage(sender);
+                        break;
                 }
             } else mainMenu(sender);
         } return true;
